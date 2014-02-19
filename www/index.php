@@ -1,8 +1,5 @@
 <?php
-// Include Composer autoloader
-require '../vendor/autoload.php';
-
-define('ENVIRONMENT', getenv('ENVIRONMENT') ? getenv('ENVIRONMENT') : 'development');
+require_once('init.php');
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
@@ -15,7 +12,14 @@ $log->pushHandler(new StreamHandler('unicorns_rocks.log', Logger::WARNING));
 $log->addWarning('Unicorns not in place');
 $log->addError('There are no unicorns present');
 ?>
+<!DOCTYPE html>
+  <head>
+    <title>Netlight Unicorns</title>
+  </head>
+  <body>
+    <h1>Hello Netlight!</h1>
+    <p>I just wrote a few lines to <em>unicorns_rock.log</em></p>
 
-<h1>Hello Netlight!</h1>
-<p>I just wrote a few lines to <em>unicorns_rock.log</em></p>
-<p>This is from <strong><?php echo ENVIRONMENT; ?></strong></p>
+    <p>This is from <strong><?php echo ENVIRONMENT; ?></strong></p>
+  </body>
+</html>
